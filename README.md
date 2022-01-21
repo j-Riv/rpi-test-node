@@ -1,2 +1,2 @@
 # Raspberry Pi Test Node
-> Example Docker Image For Testing
+> Simple Node App that serves an image.
