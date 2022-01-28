@@ -9,8 +9,33 @@
 Flash each SD card with [Ubuntu Server 20.04 LTS](https://ubuntu.com/download/raspberry-pi) using something like [balenaEtcher](https://www.balena.io/etcher/).
 
 #### Set Up
-> Do this on each Pi
-Edit the host name ex: `k8s-master` for the master and `k8s-worker-01` for the worker.
+> You will prob want to give each pi a static ip to make it easier to reach. If you add static ips, you could create an ssh hosts file to make ssh even easier.
+```bash
+sudo nano ~/.ssh/config
+```
+
+```bash
+# master
+Host k8s-master
+    HostName XXX.XXX.X.XXX
+    User your-user
+# worker
+Host k8s-worker-01
+    HostName XXX.XXX.X.XXX
+    User your-user
+# worker
+Host k8s-worker-02
+    HostName XXX.XXX.X.XXX
+    User your-user
+# worker    
+Host k8s-worker-03
+    HostName XXX.XXX.X.XXX
+    User your-user
+```
+
+Do this on each pi.
+
+Edit the host name ex: `k8s-master` for the master and `k8s-worker-01`, `k8s-worker-02`, `k8s-worker-03` for the workers.
 ```bash
 sudo nano /etc/hostname
 ```
