@@ -158,6 +158,9 @@ Next step is to run a service.
 
 ## Deployment
 > Creates a Simple NodeJS Server that displays an image. Deployment with 3 replicas.
+
+![The Pig Dog Squad](./public/rpi-dev.jpg)
+
 ```bash
 kubectl apply -f rpi-test-node-deploy.yaml
 
