@@ -221,8 +221,38 @@ kubectl -n kubernetes-dashboard delete serviceaccount admin-user
 kubectl -n kubernetes-dashboard delete clusterrolebinding admin-user
 ```
 
+### Kubernetes Metrics Server
+Download file
+```bash
+wget https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml -O metrics-server-components.yaml
+```
+
+Kubelet certificate needs to be signed by cluster Certificate Authority (or disable certificate validation by passing --kubelet-insecure-tls to Metrics Server)
+
+Modify the file (Do not do this in production)
+> Add --kublet-insecure-tls to container args
+```bash
+
+nano metrics-server-components.yml
+```
+
+
+### kubectl commands
+
+Get deployments across all namespaces
+```bash
+kubectl get deploy -A
+```
+
+Delete deployment
+```bash
+kubectl delete deploy deploymentname -n namespacename
+```
+
 ## Resources
 - [Setting up a Raspberry Pi Kubernetes Cluster with Ubuntu 20.04](https://www.learnlinux.tv/setting-up-a-raspberry-pi-kubernetes-cluster-with-ubuntu-20-04/)
 - [Kubernetes Dashboard](https://github.com/kubernetes/dashboard)
 - [Access Control](https://github.com/kubernetes/dashboard/tree/master/docs/user/access-control)
 - [Creating a Sample User](https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md)
+- [Metrics Server](https://github.com/kubernetes-sigs/metrics-server)
+- [Kubectl Cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
